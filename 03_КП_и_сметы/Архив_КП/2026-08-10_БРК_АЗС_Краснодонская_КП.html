@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>КП АРТЕЛЬ — БРК АЗС Краснодонская</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Стиль с zavodartel.ru: чёрный + жёлтый #fdd500, простой гротеск -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* токены с сайта Завод Артель */
+      --ink: #111111;
+      --ink-soft: #222222;
+      --paper: #ffffff;
+      --card: #ffffff;
+      --line: #e8e8e8;
+      --muted: #555555;
+      --signal: #fdd500;
+      --signal-deep: #f2b610;
+      --steel: #999999;
+      --wash: #ebebeb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #111111;
+      color: var(--ink);
+      font-family: "Source Sans 3", Arial, system-ui, sans-serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      padding: 24px 12px 48px;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--signal);
+    }
+
+    /* --- header --- */
+    .head {
+      background: #000000;
+      color: #ffffff;
+      padding: 22px 28px 20px 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+      border-bottom: 4px solid var(--signal);
+    }
+
+    .brand {
+      font-family: "Oswald", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 30pt;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: var(--signal);
+    }
+
+    .brand-sub {
+      margin-top: 6px;
+      font-size: 8.5pt;
+      color: #c9c9c9;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .head-meta {
+      text-align: right;
+      font-size: 8.5pt;
+      color: #c9c9c9;
+      line-height: 1.55;
+    }
+
+    .head-meta strong {
+      display: block;
+      color: var(--signal);
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .head-meta a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* --- body --- */
+    .body {
+      padding: 22px 28px 28px 34px;
+    }
+
+    .doc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .doc-title {
+      font-family: "Oswald", Arial, sans-serif;
+      font-weight: 600;
+      font-size: 18pt;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .doc-meta {
+      font-size: 9pt;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .doc-meta b { color: var(--ink-soft); font-weight: 700; }
+
+    /* --- hero visual --- */
+    .hero {
+      margin: 0 0 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .hero-frame {
+      min-height: 140px;
+      max-height: 180px;
+      background:
+        linear-gradient(135deg, rgba(20,23,28,.04) 0%, transparent 50%),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 8px,
+          rgba(20,23,28,.03) 8px,
+          rgba(20,23,28,.03) 9px
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-frame img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .hero-placeholder {
+      text-align: center;
+      color: var(--muted);
+      font-size: 9.5pt;
+      padding: 28px 20px;
+    }
+
+    .hero-placeholder strong {
+      display: block;
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 12pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+
+    .hero-caption {
+      padding: 7px 12px;
+      font-size: 8.5pt;
+      font-style: italic;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: var(--wash);
+    }
+
+    /* --- sections --- */
+    .sec { margin-bottom: 14px; }
+
+    .sec-label {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 7px;
+    }
+
+    .sec-label::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+      background: var(--signal);
+      vertical-align: -1px;
+    }
+
+    .params {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .param {
+      display: grid;
+      grid-template-columns: 38% 62%;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+
+    .param:nth-child(2n) { border-right: none; }
+    .param:nth-last-child(-n+2) { border-bottom: none; }
+
+    .param-k {
+      padding: 8px 10px;
+      font-size: 8.5pt;
+      color: var(--muted);
+      background: var(--wash);
+      font-weight: 600;
+    }
+
+    .param-v {
+      padding: 8px 10px;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    table.price {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    table.price th {
+      text-align: left;
+      font-size: 8pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #111111;
+      background: var(--signal);
+      padding: 8px 10px;
+      font-weight: 700;
+    }
+
+    table.price td {
+      padding: 9px 10px;
+      border-top: 1px solid var(--line);
+      font-size: 9.5pt;
+    }
+
+    table.price tr.total td {
+      background: #111111;
+      font-weight: 800;
+      font-size: 11pt;
+      border-top: 2px solid var(--signal);
+      color: #ffffff;
+    }
+
+    table.price tr.total td.num {
+      color: var(--signal);
+    }
+
+    table.price td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    table.price th.num { text-align: right; }
+
+    .footnote {
+      margin-top: 6px;
+      font-size: 8pt;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .list-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px 10px 14px;
+    }
+
+    .list-card ul {
+      list-style: none;
+      font-size: 9pt;
+    }
+
+    .list-card li {
+      position: relative;
+      padding: 3px 0 3px 14px;
+    }
+
+    .list-card.ok li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: var(--signal);
+    }
+
+    .list-card.no li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 1.5px;
+      background: var(--steel);
+    }
+
+    .terms {
+      display: grid;
+      gap: 4px;
+    }
+
+    .term {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px;
+      font-size: 9.5pt;
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .term:last-child { border-bottom: none; }
+    .term b { color: var(--muted); font-weight: 600; font-size: 8.5pt; }
+
+    /* --- recommendation: signature --- */
+    .reco {
+      margin-top: 4px;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 0;
+      padding: 14px 16px 14px 18px;
+      position: relative;
+      overflow: hidden;
+      border-left: 5px solid var(--signal);
+    }
+
+    .reco .sec-label {
+      color: var(--signal);
+      margin-bottom: 8px;
+    }
+
+    .reco .sec-label::before { display: none; }
+
+    .reco p {
+      font-size: 10pt;
+      line-height: 1.5;
+      max-width: 52ch;
+    }
+
+    .reco p + p { margin-top: 6px; }
+
+    .foot {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .cta {
+      background: var(--signal);
+      color: #111111;
+      font-weight: 800;
+      font-size: 9pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      border-radius: 0;
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Oswald", Arial, sans-serif;
+    }
+
+    .tg-block {
+      margin: 20px auto 0;
+      width: 210mm;
+      background: #000000;
+      color: #e8e8e8;
+      border-radius: 0;
+      padding: 14px 18px;
+      font-size: 10pt;
+      border-left: 4px solid var(--signal);
+    }
+
+    .tg-block h3 {
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 11pt;
+      color: var(--signal);
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tg-block p { line-height: 1.5; color: #c9c9c9; }
+
+    .hint {
+      margin: 12px auto 0;
+      width: 210mm;
+      font-size: 9pt;
+      color: #999999;
+      text-align: center;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .sheet { box-shadow: none; width: 210mm; }
+      .tg-block, .hint { display: none; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <article class="sheet">
+    <header class="head">
+      <div>
+        <div class="brand">Завод <span>Артель</span></div>
+        <div class="brand-sub">Наружная и внутренняя реклама · Улан-Удэ</div>
+      </div>
+      <div class="head-meta">
+        <strong>Контакты</strong>
+        584-655<br />
+        <a href="mailto:Artel.Rk@yandex.ru">Artel.Rk@yandex.ru</a><br />
+        <a href="http://zavodartel.ru">zavodartel.ru</a><br />
+        ул. Трактовая 30А
+      </div>
+    </header>
+
+    <div class="body">
+      <div class="doc-row">
+        <h1 class="doc-title">Коммерческое предложение</h1>
+        <div class="doc-meta">
+          <div>Клиент: <b>АЗС БРК</b></div>
+          <div>Дата: <b>10.08.2026</b></div>
+          <div>№ <b>БРК-Кр-001</b></div>
+        </div>
+      </div>
+
+      <section class="hero" aria-label="Визуал">
+        <div class="hero-frame">
+          <img src="2026-08-10_БРК_Краснодонская_hero.jpg" alt="Рендер операторной АЗС БРК после обновления" />
+        </div>
+        <div class="hero-caption">Превью макета · обновление операторной АЗС БРК, ул. Краснодонская — фриз, буквы, неон, фасад АКП 3D</div>
+      </section>
+
+      <section class="sec">
+        <div class="sec-label">Параметры заказа</div>
+        <div class="params">
+          <div class="param"><div class="param-k">Изделие</div><div class="param-v">Фриз АКП + световые буквы + неон + фасад 3D</div></div>
+          <div class="param"><div class="param-k">Размеры</div><div class="param-v">Фриз 37,41 / 13,81 м × 1,07 м; фасад 88,43 м²</div></div>
+          <div class="param"><div class="param-k">Материалы</div><div class="param-v">АКП, акрил, ПВХ, алюм. борт, профлист</div></div>
+          <div class="param"><div class="param-k">Свет / крепёж</div><div class="param-v">LED elf-vivo 2 SMD IP67, неон 16 мм IP67</div></div>
+          <div class="param"><div class="param-k">Монтаж</div><div class="param-v">Да, включён в позиции ниже</div></div>
+          <div class="param"><div class="param-k">Объект</div><div class="param-v">Улан-Удэ, ул. Краснодонская, операторная АЗС</div></div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec-label">Стоимость</div>
+        <table class="price">
+          <thead>
+            <tr>
+              <th>Позиция</th>
+              <th class="num">Кол-во</th>
+              <th class="num">Сумма, ₽</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Фриз АКП полукруглый, 3 стороны (красный/белый), каркас 20×20×2, монтаж. L=37,41 м, H=1,07 м</td>
+              <td class="num">1</td>
+              <td class="num">462 150</td>
+            </tr>
+            <tr>
+              <td>Фриз АКП плоский, 1 сторона (красный), каркас 20×20×2, монтаж. L=13,81 м, H=1,07 м</td>
+              <td class="num">1</td>
+              <td class="num">146 890</td>
+            </tr>
+            <tr>
+              <td>Световые буквы «БРК» 2,23×0,6 м (акрил красный 3 мм, торец ПВХ 5 мм, LED IP67), монтаж</td>
+              <td class="num">2</td>
+              <td class="num">98 692</td>
+            </tr>
+            <tr>
+              <td>Световые буквы «МИНИ МАРКЕТ» 3,41×0,3 м (акрил молочный 3 мм, алюм. борт, ПВХ 8 мм, LED), монтаж</td>
+              <td class="num">2</td>
+              <td class="num">73 352</td>
+            </tr>
+            <tr>
+              <td>Оцинкованный лист белый — примыкание крыши и фриза АКП</td>
+              <td class="num">51,22 м.п.</td>
+              <td class="num">81 952</td>
+            </tr>
+            <tr>
+              <td>Неон белый холодный 16 мм IP67 + П-профиль, фриз и колонны, монтаж</td>
+              <td class="num">38 м.п.</td>
+              <td class="num">74 480</td>
+            </tr>
+            <tr>
+              <td>Фасад АКП белый 3D, 3 стороны + подсистема; зад — профлист С-8 0,45 мм 45,5 м²; монтаж 88,43 м²</td>
+              <td class="num">1</td>
+              <td class="num">1 000 800</td>
+            </tr>
+            <tr class="total">
+              <td colspan="2">Итого</td>
+              <td class="num">1 938 316</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="footnote">Без НДС. Монтаж включён в позиции. Срок действия КП — 14 дней. Сумма уточняется после замера и утверждения макетов.</p>
+      </section>
+
+      <section class="sec two-col">
+        <div>
+          <div class="sec-label">Что входит в цену</div>
+          <div class="list-card ok">
+            <ul>
+              <li>Изготовление фризов, букв, неона, фасада</li>
+              <li>Материалы и светотехника по спецификации</li>
+              <li>Каркас фриза из профильной трубы</li>
+              <li>Монтаж на объекте</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="sec-label">Что не входит</div>
+          <div class="list-card no">
+            <ul>
+              <li>Согласования с собственником / УК</li>
+              <li>Демонтаж старого оформления</li>
+              <li>Автовышка сверх базового монтажа</li>
+              <li>Подвод питания до точки подключения</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec-label">Срок и условия</div>
+        <div class="terms">
+          <div class="term"><b>Производство</b><span>20–25 рабочих дней после предоплаты и утверждения макетов</span></div>
+          <div class="term"><b>Монтаж</b><span>3–5 рабочих дней на объекте</span></div>
+          <div class="term"><b>Оплата</b><span>70% предоплата / 30% по готовности к отгрузке · гарантия 12 месяцев</span></div>
+        </div>
+      </section>
+
+      <section class="reco">
+        <div class="sec-label">Рекомендация</div>
+        <p>Комплекс закрывает операторную целиком: новый фриз, объёмные световые буквы, контурный неон и фасад с 3D-эффектом — объект читается с дороги и держит единый стиль БРК.</p>
+        <p>Перед договором фиксируем замер и спецификацию подсистемы фасада — от этого зависят срок и финальная сумма. Макеты «БРК» и «МИНИ МАРКЕТ» утверждаем до запуска в цех.</p>
+      </section>
+
+      <footer class="foot">
+        <div>
+          Завод Артель · от вывески до оформления под ключ<br />
+          Вопросы по КП - ответим в день обращения · 584-655
+        </div>
+        <div class="cta">Сотрудничать →</div>
+      </footer>
+    </div>
+  </article>
+
+  <aside class="tg-block">
+    <h3>Для Telegram (не в PDF)</h3>
+    <p>АЗС БРК, Краснодонская — обновление операторной: фриз АКП, буквы «БРК» + «МИНИ МАРКЕТ», неон, фасад 3D.<br />
+Итого: <b style="color:#fdd500">1 938 316 ₽</b> (монтаж в позициях).<br />
+Срок: 20–25 р.д. производство + 3–5 р.д. монтаж.<br />
+Следующий шаг: замер и утверждение макетов — когда удобно выехать?</p>
+  </aside>
+
+  <p class="hint">Печать: Cmd/Ctrl+P → PDF · поля 0 · фон включён. Стиль: zavodartel.ru (чёрный + #fdd500) · блоки как ЗАРАМКИ · агент @кп.</p>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿=== PDF BASELINE ===
+PDF_TOTAL=1938316
+PDF_friz_round=462150 (40,029 m2 => 11545/m2)
+PDF_friz_flat=146890 (14,777 m2 => 9940/m2)
+PDF_BRK_2sets=98692 (1set=49346)
+PDF_MINI_2sets=73352 (1set=36676)
+PDF_galv=81952 (51,22 м.п. => 1600/м)
+PDF_neon=74480 (38 м => 1960/м)
+PDF_facade=1000800
+
+=== CONTOUR1 PRICE_2026 (типовой/быстрый) ===
+friz_round=442080
+friz_flat=163197
+BRK_1set=40500 x2=81000
+MINI_1set=67500 x2=135000
+neon=55100
+galv_est=50580
+facade_acp_flat=976621
+facade_prof=179725
+C1_SUM_no_3D_premium=2083303
+C1_vs_PDF_delta=144987 (7.5%)
+
+=== FORA-LOGIC (оценка по материалам шаблонов + наценки, НЕ живой прогон) ===
+BRK_mat=5859 labor~1796 cost~10025 sale_no_mount=12230 mount=2446 FORA_1set~14676 x2=29352
+MINI_mat=4526 labor~4491 FORA_1set~19063 x2=38126
+NEON_mat=90782 FORA_total~158818 (PDF=74480, price1450=55100)
+FRIZ_R_mat=120783 FORA_est=252798
+FRIZ_F_mat=44284 FORA_est=92170
+
+=== NONSTANDARD materials x3 (бланк) ===
+NS_frizR=362348 (mat=120783)
+NS_frizF=132851
+NS_BRK_2=35154
+NS_MINI_2=27156
+NS_neon=260946
+NS_galv=38722
+NS_facade_mat_only=970730  << без подсистемы 3D
+NS_PROD_SUBTOTAL=1827907
+SUBSYSTEM_FACADE=Цена не найдена
+MOUNT_est=120000 + lift~16500
+
+=== COMPARISON TABLE ===
+POS|PDF|Price2026/Типовой|Fora-оценка|Нестандарт x3
+FrizR|462150|442080|252798|362348
+FrizF|146890|163197|92170|132851
+BRK2|98692|81000|29352|35154
+MINI2|73352|135000|38126|27156
+Galv|81952|50580|н/д|38722
+Neon|74480|55100|158818|260946
+Facade|1000800|1156346|нет шаблона|970730(+подсистема?)
+SUM_ForaHybrid~1580716
+SUM_NS~1827907 +mount/подсистема
+PDF=1938316

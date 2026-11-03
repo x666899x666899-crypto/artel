@@ -1,0 +1,18 @@
+M_CLEAN=5730.58
+rash=573.06 metiz=343.83 base=6647.47
+J6_x3.4=22601.4
+TECH_16pct=3616.22
+overhead62mat=3552.96
+CNC_face=3312 bend=2691 pvc8=1656 CNC=7659 amort=1531.8
+OP=993.6
+SEBEST_J2=14810.25
+profit20=2962.05 mgr4=592.41 nop2=296.2 rop2=296.2 DOP=4146.86
+J3_sebest_plus_markup=18957.11
+DIRTY_M=25729.58 DIRTY_J6=101477.46 CALC_WAS=101477
+PRICE225=101250
+MAT|Акрил 3мм Econom лицо|634.68
+MAT|ПВХ 8мм Econom задник|672.4
+MAT|Борт алюм. 60 мм|1242
+MAT|LED 2 SMD Econom|1681.5
+MAT|БП 100Вт уличный|1150
+MAT|Фотореле|350
